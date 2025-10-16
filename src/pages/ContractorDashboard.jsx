@@ -23,7 +23,7 @@ const SidebarContainer = styled.div`
   overflow-y: auto;
 
   @media (max-width: 992px) {
-    transform: ${({ $isOpen }) => 
+    transform: ${({ $isOpen }) =>
       $isOpen ? "translateX(0)" : "translateX(-100%)"};
     width: 280px;
   }
@@ -107,24 +107,18 @@ const ContractorDashboard = () => {
   return (
     <DashboardContainer>
       {/* Mobile Overlay - Only shows on mobile when sidebar is open */}
-      <Overlay 
-        $isOpen={sidebarOpen} 
-        onClick={closeSidebar}
-      />
+      <Overlay $isOpen={sidebarOpen} onClick={closeSidebar} />
 
       {/* Sidebar - Fixed on desktop, toggleable on mobile */}
       <SidebarContainer $isOpen={sidebarOpen}>
-        <ContractorSidebar 
-          isOpen={sidebarOpen}
-          onClose={closeSidebar}
-        />
+        <ContractorSidebar isOpen={sidebarOpen} onClose={closeSidebar} />
       </SidebarContainer>
 
       {/* Main Content Area */}
       <MainContent>
         {/* Header with responsive menu button */}
         <Header onMenuClick={toggleSidebar} />
-        
+
         {/* Content Container with responsive padding */}
         <ContentContainer>
           <Outlet />
